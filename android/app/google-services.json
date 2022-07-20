@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1078999069232",
+    "project_id": "sharedropzone",
+    "storage_bucket": "sharedropzone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078999069232:android:7cfe43c360b97b573ef3f5",
+        "android_client_info": {
+          "package_name": "com.example.sharedropzone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078999069232-5e44h98chpk3sb4m9pa12k45t6q5fj0q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5e4_omhLHFIdaQByboU1xnhMuWeTQ-Kw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078999069232-5e44h98chpk3sb4m9pa12k45t6q5fj0q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

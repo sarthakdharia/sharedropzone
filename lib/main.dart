@@ -1,10 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sharedropzone/home.dart';
 import 'package:sharedropzone/pages/SplashScreen.dart';
 import 'package:sharedropzone/pages/newdrive.dart';
-import 'package:sharedropzone/routes/app_pages.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -30,7 +28,6 @@ class _MyAppState extends State<MyApp> {
       ),
       home: MySplashScreen(),
       debugShowCheckedModeBanner: false,
-      getPages: AppPages.routes,
     );
   }
 }

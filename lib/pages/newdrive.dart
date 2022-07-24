@@ -1,3 +1,4 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -9,9 +10,15 @@ class CreateDrive extends StatefulWidget {
 }
 
 class _CreateDriveState extends State<CreateDrive> {
+  late Future<ListResult> futureFiles;
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  void initState() {
+    super.initState();
+
+    futureFiles = FirebaseStorage.instance.ref('/test').listAll();
+  }
+
+  Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.white,
           shadowColor: Colors.black,
@@ -57,9 +64,36 @@ class _CreateDriveState extends State<CreateDrive> {
               ),
             ),
           ]),
-      body: Center(
-        child: Text('Newww'),
-      ),
-    );
-  }
+      body: FutureBuilder<ListResult>(
+        future: futureFiles,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final files = snapshot.data!.items;
+            return ListView.builder(
+              itemCount: files.length,
+              itemBuilder: (context, index) {
+                final file = files[index];
+                return ListTile(
+                  title: Text(file.name),
+                  trailing: IconButton(
+                    icon: const Icon(
+                      Icons.download,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {},
+                  ),
+                );
+              },
+            );
+          } else if (snapshot.hasError) {
+            return const Center(
+              child: Text('Error occured'),
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ));
 }
